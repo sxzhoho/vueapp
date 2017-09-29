@@ -13,6 +13,13 @@ npm run dev
 
 # build for production with minification
 npm run build
-```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#config/mysql.json config the database
+#create local database name todoproject
+
+#create database table 
+node server/dbInit
+
+#run the app
+node server
+```
