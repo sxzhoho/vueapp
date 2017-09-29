@@ -4,7 +4,6 @@ var sql = require('./server/connect')
 var bodyParser = require('body-parser')
 var fs = require('fs')
 var path = require('path')
-var { createBundleRenderer } = require('vue-server-renderer');
 
 sql.connect()
 app.all('*', function (req, res, next) {

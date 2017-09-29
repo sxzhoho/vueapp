@@ -5,6 +5,9 @@
 ## Build Setup
 
 ``` bash
+This project using vue, express, mysql 
+
+
 # install dependencies
 npm install
 

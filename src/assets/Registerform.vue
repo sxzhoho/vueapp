@@ -29,13 +29,12 @@ export default{
         register(){
         	if(this.username!=''){
 	            this.$ajax.post('http://127.0.0.1:3000/register',this.$qs.stringify({
-	                username : this.username,
-	                password : this.password,
+	                username : this.username
 	            })).then(res=>{
 	                if(res.data.code==1){
 	                  console.log("you are in");
 	                  setTimeout(function(){
-	                      this.router.push("/thingspage")
+	                      router.push("/thingspage")
 	                  },500)
 	                }else{
 	                  this.message=res.data.ms
