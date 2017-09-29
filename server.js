@@ -45,6 +45,17 @@ app.post('/login', function (req, res) {
     }
   })
 })
+
+app.post('/thingspage', function (req, res) {
+  sql.query('SELECT `thignstodo` FROM `thingsToDo`', function (err, rows) {
+    if (err || rows.length == 0) {
+      console.log(err)
+      res.send({code: 0})
+    }else {
+      res.send(rows)
+    }
+  })
+})
 app.use(express.static(`${__dirname}/dist`));
 app.use(express.static(`${__dirname}/src`));
 app.use(express.static('public')); 
