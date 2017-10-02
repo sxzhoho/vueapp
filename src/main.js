@@ -5,7 +5,6 @@ import router from './router.js'
 import qs from 'qs'
 Vue.prototype.$ajax = axios
 Vue.prototype.$qs = qs
-Vue.prototype.$help = new Vue();
 
 new Vue({
 	router,

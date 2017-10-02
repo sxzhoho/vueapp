@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const thingspage = resolve => require(['./assets/thingspage.vue'], resolve)
-const home = resolve => require(['./assets/home.vue'], resolve)
+const thingspage = resolve => require(['./assets/Thingspage.vue'], resolve)
+const home = resolve => require(['./assets/Home.vue'], resolve)
 Vue.use(Router)
 
 export default new Router({

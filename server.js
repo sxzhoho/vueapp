@@ -20,7 +20,6 @@ app.post('/', function (req, res) {})
 
 app.post('/register', function (req, res) {
   sql.query('SELECT `username` FROM `users` WHERE `username`="' + req.body.username + '"', function (err, rows) {
-    console.log(rows)
     if (err || rows.length == 0) {
       sql.query('insert  into users set ?' , {username: req.body.username}, function (err, rows) {
         if (err) {
@@ -47,12 +46,19 @@ app.post('/login', function (req, res) {
 })
 
 app.post('/thingspage', function (req, res) {
-  sql.query('SELECT `thignstodo` FROM `thingsToDo`', function (err, rows) {
+  sql.query('SELECT `thingstodo`, `completed` FROM `thingsToDo` WHERE `username`="' + req.body.username + '"', function (err, rows) {
     if (err || rows.length == 0) {
       console.log(err)
-      res.send({code: 0})
+      res.send({code: 0, ms:"you dont have any thingstodo"})
     }else {
-      res.send(rows)
+      var data = {}
+      for (var i = 0; i < rows.length; i++) {
+        data[i] = {
+          description: rows[i].thingstodo,
+          completed: !!parseInt(rows[i].completed)
+        }
+      }
+      res.send({code:1, data:data,leng:rows.length})
     }
   })
 })

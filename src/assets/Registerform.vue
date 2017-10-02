@@ -31,8 +31,8 @@ export default{
 	            this.$ajax.post('http://127.0.0.1:3000/register',this.$qs.stringify({
 	                username : this.username
 	            })).then(res=>{
-	                if(res.data.code == 1){
-	                  console.log("you are in");
+	                if(res.data.code==1){
+	                  sessionStorage.setItem('name',this.username);
 	                  setTimeout(function(){
 	                      router.push("/thingspage")
 	                  },500)

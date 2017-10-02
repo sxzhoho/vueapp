@@ -27,7 +27,7 @@ export default {
     },
     // mounted(){
     //   if(sessionStorage.getItem('name')){
-    //     this.$router.push("/thingspage")
+    //     router.push("/thingspage")
     //   }
     // },
     methods:{

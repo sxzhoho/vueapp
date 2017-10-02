@@ -37,10 +37,25 @@ export default {
 					{description:'4. config static path for express',completed: false},
 					{description:'5. config webpack to build all js file to /dist',completed: false}
 				],
-				newtask:''
+				newtask:'',
+				data: [],
+				username:''
 			}
 		},
-
+		mounted() {
+			this.username = sessionStorage.getItem('name');
+			this.$ajax.post('http://127.0.0.1:3000/thingspage',this.$qs.stringify({
+	                username : this.username
+	            })).then(res=>{
+	                if(res.data.code==0){
+	                  console.log(res.data.ms)
+	                }else{
+	                	for(var i=0; i< res.data.leng; i++){
+	                			this.tasks.push({description:res.data.data[i].description, completed:res.data.data[i].completed})
+	                	}
+	                }
+	            })
+		},
 		computed: {
 			incompleteTasks() {
 				return this.tasks.filter(task => !task.completed);
